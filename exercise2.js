@@ -7,6 +7,31 @@
 
 class BankAccount {
   // YOUR CODE HERE
+  constructor(accountNumber, balance) {
+    this.accountNumber = accountNumber;
+    this.balance = balance;
+  }
+  deposit(depositAmount) {
+    this.balance +=depositAmount;
+    console.log(`After deposit balance: ${this.balance}`);
+  }
+  withdraw(withdrawAmount) {
+    if(this.balance >= withdrawAmount){
+      this.balance -= withdrawAmount;
+      console.log(`After withdraw balance: ${this.balance}`);
+    } else {
+      console.log("Insufficient funds for withdrawal.");
+    }
+  }
+  static compareAccounts(account1, account2) {
+    if(account1.balance > account2.balance){
+      return account1;
+    } else if (account1.balance < account2.balance){
+      return account2;
+    } else {
+      return null;
+    }
+  }
 }
 
 
